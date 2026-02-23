@@ -1,4 +1,23 @@
+# env files (secrets)
 .env
+server/.env
+client/.env
+
+# dependencies
 node_modules
+server/node_modules
+client/node_modules
+
+# runtime / uploads
+server/uploads
 uploads
-.sqlite
+
+# local databases / logs
+*.sqlite
+*.sqlite3
+server_log.txt
+*.log
+
+# OS / editor
+.DS_Store
+.vscode

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Payment Success | Imperial Sewing</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div style="max-width:900px;margin:40px auto;padding:20px;">
+  <h1 id="title">Confirming your appointment…</h1>
+  <p id="msg">Please wait.</p>
+  <p id="id" style="font-weight:800;"></p>
+  <p><a href="index.html">Back to Booking</a></p>
+</div>
+
+<script>
+  const API = "http://localhost:5174/api";
+  const params = new URLSearchParams(location.search);
+  const sessionId = params.get("session_id");
+
+  async function run() {
+    if (!sessionId) {
+      document.getElementById("title").textContent = "Missing session_id";
+      document.getElementById("msg").textContent = "Stripe did not send session_id. Please contact support.";
+      return;
+    }
+
+    const res = await fetch(`${API}/confirm-booking`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sessionId })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      document.getElementById("title").textContent = "Could not confirm appointment";
+      document.getElementById("msg").textContent = data.error || "Error confirming booking.";
+      return;
+    }
+
+    document.getElementById("title").textContent = "Appointment confirmed ✅";
+    document.getElementById("msg").textContent = "Payment completed and your time is reserved.";
+    document.getElementById("id").textContent = "Appointment ID: " + data.appointmentId;
+  }
+
+  run();
+</script>
+
+</body>
+</html>

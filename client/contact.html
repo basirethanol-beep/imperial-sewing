@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,162 +6,71 @@
   <title>DM Us | Imperial Sewing</title>
 
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    /* ===== GLOBAL SAFETY (prevents wide pages) ===== */
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #faf7f2;
-      color: #111;
-    }
-
-    /* ===== NAVBAR ===== */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 24px;
-      background: #f3ede6;
-      border-bottom: 1px solid #e5dfd7;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #111;
-      font-weight: 500;
-    }
-
-    .btn-book {
-      background: #111;
-      color: #fff !important;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    /* ===== CONTAINER ===== */
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .center-box {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .center-box h1 {
-      font-size: 42px;
-      margin-bottom: 16px;
-    }
-
-    .center-box p {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    /* ===== BUTTONS ===== */
-    .btn {
-      display: inline-block;
-      padding: 14px 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 6px;
-    }
-
-    .btn-dark {
-      background: #111;
-      color: white;
-    }
-
-    .btn-light {
-      border: 1px solid #ddd;
-      color: #111;
-      background: white;
-    }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      .center-box h1 {
-        font-size: 32px;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-    }
-  </style>
 </head>
-
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="nav">
-    <div class="logo">Imperial Sewing</div>
-
-    <div class="nav-links">
+  <!-- Keep your existing header/nav if you already have one in other pages.
+       If you don’t, this simple nav will work. -->
+  <header class="page">
+    <nav style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
       <a href="index.html">Home</a>
       <a href="wedding.html">Wedding</a>
       <a href="prom.html">Prom</a>
+      <a href="contact.html" aria-current="page"><b>DM Us</b></a>
       <a href="gallery.html">Gallery</a>
       <a href="about.html">About</a>
-      <a href="contact.html">DM Us</a>
-      <a href="booking.html" class="btn-book">Book</a>
-    </div>
-  </nav>
+      <a href="booking.html" style="margin-left:auto; padding:10px 16px; border-radius:999px; background:#111; color:#fff; text-decoration:none;">Book</a>
+    </nav>
+  </header>
 
-  <!-- ===== CONTENT ===== -->
-  <div class="container">
-    <div class="center-box">
-      <h1>DM Us</h1>
-
-      <p>
-        Questions about wedding, prom tailoring, hemming, zippers, or anything else?
-        Send us a message and we’ll reply as soon as possible.
+  <main class="page">
+    <section class="card">
+      <h1 style="margin:0 0 10px;">DM Us</h1>
+      <p style="margin:0 0 18px; opacity:.8;">
+        Ask a question, send photos, or tell us what you need. We’ll reply as soon as possible.
       </p>
 
-      <a
-        href="https://instagram.com/"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-dark"
-      >
-        Instagram DM
-      </a>
+      <!-- FORM: if you already have backend route, set action to it.
+           If not, keep action="#" and it will still be fine visually. -->
+      <form class="form-grid" id="dmForm" action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-row two">
+          <input class="input" type="text" name="name" placeholder="Your name" required />
+          <input class="input" type="email" name="email" placeholder="Email" required />
+        </div>
 
-      <a
-        href="mailto:imperialsewing@gmail.com"
-        class="btn btn-light"
-      >
-        Email Us
-      </a>
-    </div>
-  </div>
+        <div class="form-row two">
+          <input class="input" type="tel" name="phone" placeholder="Phone (optional)" />
+          <select class="select" name="topic" required>
+            <option value="">Choose topic</option>
+            <option value="prom">Prom</option>
+            <option value="wedding">Wedding</option>
+            <option value="alterations">Alterations</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
+        <div class="form-row">
+          <textarea class="textarea" name="message" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <label style="display:block; margin-bottom:6px; opacity:.8;">Upload photo (optional)</label>
+          <input class="input" type="file" name="photo" accept="image/*" />
+        </div>
+
+        <div class="form-row">
+          <button class="btn-full" type="submit" style="background:#111; color:#fff;">
+            Send Message
+          </button>
+        </div>
+      </form>
+
+      <p style="margin:14px 0 0; font-size:14px; opacity:.7;">
+        Prefer Instagram? Use the “DM Us” button on the home page.
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>

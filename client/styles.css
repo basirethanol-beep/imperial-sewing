@@ -1,3 +1,13 @@
+/* ===== GLOBAL WIDTH FIX ===== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 :root{
   --bg:#f6f2ee;
   --card:#ffffff;
@@ -592,3 +602,44 @@ input:focus, select:focus, textarea:focus{
 .book-btn:hover{
   background:#000;
 }
+/* ====== ABSOLUTE MOBILE WIDTH FIX (PASTE BOTTOM OF CSS) ====== */
+
+/* 1) Never allow horizontal scroll */
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* 2) Any element cannot exceed screen */
+* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 3) Common offenders */
+img, video, iframe, canvas, svg {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* 4) Forms often break mobile */
+input, select, textarea, button {
+  max-width: 100% !important;
+}
+
+/* 5) If you used 100vw anywhere, it can cause overflow on mobile */
+.full, .full-width, .section, section, header, nav, main, footer {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 6) Flex children can push width if min-width isn't reset */
+.row, .nav-row, .form-row, .grid, .container-row {
+  flex-wrap: wrap !important;
+}
+.row > *, .nav-row > *, .form-row > *, .grid > *, .container-row > * {
+  min-width: 0 !important;
+}
+
+/* ====== END ====== */

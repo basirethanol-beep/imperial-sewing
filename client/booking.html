@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Book Appointment | Imperail Sewing</title>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    .booking-wrap{
+      max-width: 760px;
+      margin: 40px auto;
+    }
+
+    .time-grid{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+
+    @media (max-width:700px){
+      .time-grid{ grid-template-columns: repeat(2,1fr); }
+    }
+
+    .time-slot{
+      padding:12px;
+      border-radius:12px;
+      border:1px solid #ddd;
+      background:#fff;
+      cursor:pointer;
+      text-align:center;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .time-slot:hover{
+      border-color:#000;
+    }
+
+    .time-slot.active{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+
+    .form-group{
+      margin-top:16px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #ddd;
+      font-size:14px;
+    }
+
+    .book-main-btn{
+      margin-top:20px;
+      width:100%;
+      padding:16px;
+      border-radius:999px;
+      border:none;
+      background:#111;
+      color:#fff;
+      font-weight:700;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    .msg{
+      margin-top:12px;
+      font-weight:600;
+      color:#444;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="nav-wrap">
+  <div class="container nav">
+    
+    <div class="logo">
+      <span class="logo-icon">✂</span>
+      <span class="logo-text">Imperail Sewing</span>
+    </div>
+
+    <nav class="menu">
+      <a href="home.html">Home</a>
+      <a href="wedding.html">Wedding</a>
+      <a href="prom.html">Prom</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">DM Us</a>
+      <a href="index.html" class="book-btn">Book</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- BOOKING -->
+<div class="container booking-wrap">
+
+  <h1 style="margin-bottom:10px;">Book Your Fitting</h1>
+  <p style="color:#666;margin-bottom:20px;">
+    Select service, pick a time, and upload your dress photo (optional).
+  </p>
+
+  <!-- SERVICE -->
+  <div class="form-group">
+    <label>Service</label>
+    <select id="serviceSelect">
+      <option value="">Select service</option>
+      <option value="Wedding fitting">Wedding dress fitting</option>
+      <option value="Prom fitting">Prom dress fitting</option>
+    </select>
+  </div>
+
+  <!-- DATE -->
+  <div class="form-group">
+    <label>Date</label>
+    <input type="date" id="dateSelect"/>
+  </div>
+
+  <!-- TIME -->
+  <div class="form-group">
+    <label>Select Time</label>
+
+    <div class="time-grid">
+      <div class="time-slot" data-time="10:30">10:30 AM</div>
+      <div class="time-slot" data-time="11:00">11:00 AM</div>
+      <div class="time-slot" data-time="11:30">11:30 AM</div>
+      <div class="time-slot" data-time="12:00">12:00 PM</div>
+      <div class="time-slot" data-time="12:00">12:30 pM</div>
+      <div class="time-slot" data-time="13:00">01:00 pM</div>
+      <div class="time-slot" data-time="13:30">01:30 pM</div>
+      <div class="time-slot" data-time="14:00">02:00 pM</div>
+      <div class="time-slot" data-time="14:30">02:30 PM</div>
+      <div class="time-slot" data-time="15:00">03:00 pM</div>
+      <div class="time-slot" data-time="15:30">03:30 PM</div>
+      <div class="time-slot" data-time="16:00">04:00 AM</div>
+      <div class="time-slot" data-time="16:30">04:30 AM</div>
+    </div>
+  </div>
+
+  <!-- NAME -->
+  <div class="form-group">
+    <label>Name</label>
+    <input id="name" placeholder="Your name"/>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label>Email</label>
+    <input id="email" placeholder="your@email.com"/>
+  </div>
+
+  <!-- NOTES -->
+  <div class="form-group">
+    <label>Notes (optional)</label>
+    <textarea id="notes" rows="3"></textarea>
+  </div>
+
+  <!-- PHOTO -->
+  <div class="form-group">
+    <label>Upload dress photo (optional)</label>
+    <input id="photoInput" type="file" accept="image/*"/>
+  </div>
+
+  <!-- BUTTON -->
+  <button id="bookBtn" class="book-main-btn">
+    Book Appointment
+  </button>
+
+  <div id="msg" class="msg"></div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

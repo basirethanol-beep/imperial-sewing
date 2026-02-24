@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DM Us | Imperial Sewing</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- HEADER / NAV -->
+  <header class="header">
+    <div class="navbar">
+      <div class="brand">
+        <div class="brand-badge">IS</div>
+        <div class="brand-text">
+          <strong>Imperial Sewing</strong>
+          <span>Wedding & Prom Dress Tailoring</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="wedding.html">Wedding</a>
+        <a href="prom.html">Prom</a>
+        <a class="active" href="dm.html">DM Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="booking.html">Book</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">DM Us</h1>
+    <p class="page-sub">Ask a quick question. We’ll reply as soon as possible.</p>
+
+    <section class="card">
+      <form class="form" id="dmForm">
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" required/>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="(xxx) xxx-xxxx" required/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="email">Email (optional)</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com"/>
+          </div>
+          <div>
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="">Choose one</option>
+              <option>Prom Dress</option>
+              <option>Wedding Dress</option>
+              <option>Alterations / Hemming</option>
+              <option>Pricing</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your question here..." required></textarea>
+          <div class="help">Tip: include date needed + any details (size, fabric, what you want done).</div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="photo">Upload photo (optional)</label>
+            <input id="photo" name="photo" type="file" accept="image/*"/>
+            <div class="help">If your server supports uploads, we’ll send it with the message.</div>
+          </div>
+          <div style="display:flex; align-items:flex-end; gap:10px;">
+            <button class="btn btn-primary" type="submit">Send DM</button>
+            <a class="btn btn-outline" href="booking.html">Book Instead</a>
+          </div>
+        </div>
+
+        <p class="help" id="dmStatus"></p>
+      </form>
+    </section>
+
+    <div class="footer">© <span id="year"></span> Imperial Sewing</div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

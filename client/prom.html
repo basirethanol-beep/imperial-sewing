@@ -1,81 +1,80 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Prom Dress Tailoring | Imperail Sewing</title>
+  <title>Prom Dress Tailoring | Imperial Sewing</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="container nav-inner">
-    <div class="brand">
-      <div class="brand-mark">IS</div>
-      <div class="brand-text">
-        <div class="brand-name">Imperail Sewing</div>
-        <div class="brand-tag">Wedding & Prom Dress Tailoring</div>
+  <header class="header">
+    <div class="navbar">
+      <div class="brand">
+        <div class="brand-badge">IS</div>
+        <div class="brand-text">
+          <strong>Imperial Sewing</strong>
+          <span>Wedding & Prom Dress Tailoring</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="wedding.html">Wedding</a>
+        <a class="active" href="prom.html">Prom</a>
+        <a href="dm.html">DM Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="booking.html">Book</a>
       </div>
     </div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="wedding.html">Wedding</a>
-      <a class="btn ghost" href="prom.html">Prom</a>
-      <a href="contact.html">DM Us</a>
-       <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a class="btn" href="booking.html">Book</a>
-    </div>
-  </div>
-</nav>
+  </header>
 
-<header class="hero">
-  <div class="container hero-grid">
-    <div class="card hero-left">
-      <span class="pill">✨ <b>Prom</b> tailoring</span>
-      <h1>Perfect length. Clean silhouette. Comfort all night.</h1>
-      <p class="lead">
-        We tailor prom dresses to fit perfectly — especially the hem length with your shoes.
-        Clean stitching and a premium finish so you look sharp in photos.
+  <main class="container">
+    <h1 class="page-title">Perfect length. Clean silhouette. Comfort all night.</h1>
+    <p class="page-sub">
+      We tailor prom dresses to fit perfectly — especially the hem length with your shoes.
+      Clean stitching and a premium finish so you look sharp in photos.
+    </p>
+
+    <section class="card" style="margin-bottom:16px;">
+      <h2 style="margin:0 0 10px;">Most requested</h2>
+      <p style="margin:0; line-height:1.6;">
+        <strong>Hemming:</strong> match shoes, avoid tripping.<br/>
+        <strong>Waist shaping:</strong> clean fit without ruining design.<br/>
+        <strong>Straps:</strong> comfort fit.<br/>
+        <strong>Support:</strong> small adjustments for secure wear.
       </p>
 
-      <div class="hero-cta">
-        <a class="btn big" href="index.html">Book Prom Appointment</a>
-        <a class="btn ghost big" href="contact.html">DM a Question</a>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="booking.html">Book Prom Appointment</a>
+        <a class="btn btn-outline" href="dm.html">DM a Question</a>
       </div>
+    </section>
 
-      <div class="mini">
-        <span><span class="dot"></span> Bring your shoes</span>
-        <span><span class="dot"></span> Fast turnaround</span>
-        <span><span class="dot"></span> Premium finish</span>
+    <section class="card">
+      <h2 style="margin:0 0 10px;">How it works</h2>
+      <p style="margin:0; line-height:1.7; color:#444;">
+        1) Bring your dress + the shoes you’ll wear. <br/>
+        2) We pin and fit it exactly to your body. <br/>
+        3) You come back for pickup / final check. <br/>
+      </p>
+
+      <div style="margin-top:16px;">
+        <p class="help" style="margin:0;">
+          Tip: If you’re unsure, upload a photo on the booking page so we can guide you faster.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <div class="card hero-right">
-      <div class="card kpi">
-        <h3>Most requested</h3>
-        <p><strong>Hemming:</strong> match shoes, avoid tripping.</p>
-        <p><strong>Waist shaping:</strong> clean fit without ruining design.</p>
-        <p><strong>Straps:</strong> comfort fit.</p>
-        <p><strong>Support:</strong> small adjustments for secure wear.</p>
-      </div>
-      <div class="badge-grid">
-        <div class="badge"><b>Clean Finish</b><small>Photo-ready</small></div>
-        <div class="badge"><b>Comfort</b><small>Move freely</small></div>
-        <div class="badge"><b>Fast</b><small>When needed</small></div>
-        <div class="badge"><b>Simple</b><small>Book online</small></div>
-      </div>
-    </div>
-  </div>
-</header>
+    <div class="footer">© <span id="year"></span> Imperial Sewing</div>
+  </main>
 
-<footer class="footer">
-  <div class="container row">
-    <div>© <span id="y"></span> Imperail Sewing</div>
-    <div><a href="contact.html">DM Us</a><a href="index.html">Book</a></div>
-  </div>
-</footer>
-
-<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
